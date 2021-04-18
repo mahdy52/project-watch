@@ -1,0 +1,109 @@
+.nav{
+    background-color: #f3f3f3;
+    height:80px;
+    width: 100%; 
+    
+}
+.nav-link{
+    margin-top: 10px;
+    font-size: 20px;
+    color:#000;
+    font-family:Georgia, 'Times New Roman', Times, serif
+}
+
+.logo{
+    width: 150px;
+    margin-right: 800px;
+    margin-top: -10px;
+}
+.small{
+    margin-bottom: 20px;
+    width: 40px;
+    height: 40px;
+}
+/*****************************************************/
+.cart-page{
+    
+    margin: 80px auto;
+}
+table{
+    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+}
+.cado{
+    width: 200px;
+}
+.cart-info{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+th{
+    text-align: left;
+    padding: 5px;
+    color: white;
+    background-color: steelblue;
+    font-weight: normal;
+}
+td{
+    padding: 10px 5px;
+}
+td input{
+    width: 40px;
+    height: 30px;
+    padding: 5px;
+}
+td a{    
+    color: steelblue;
+    font-size: 14px;
+
+}
+.btn{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.total-prix{
+    display: flex;
+    justify-content: flex-end;
+
+}
+.total-prix table{
+    border-top: 3px solid steelblue;
+    width: 100%;
+    max-width: 350px;
+}
+td:last-child{
+    text-align: right;
+}
+th:last-child{
+    text-align: right;
+}
+/*********footer******************************************/
+.flex{
+
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: row; 
+    background-color: #f3f3f3;
+    justify-content: space-around;
+}
+.go{
+    width: 200px;
+}
+.lorem{
+    border: solid , #f3f3f3;
+    width: 400px;
+    text-align:left;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+.map{
+    width: 400px;
+    margin-bottom: 80px;
+}
+.copy{
+    width: 100px;
+    margin-bottom: 400px;
+}
