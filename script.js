@@ -1,21 +1,12 @@
 let add = document.querySelectorAll('.add')
-let quantity = 1
-let soustotal = 0
-
 let item = document.querySelector('.item-card')
-let incrementBtn = document.querySelector('.incQ')
-let decrementBtn = document.querySelector('.decQ')
 let total = []
-let totalProduit = []
-let isItExist = []
 let totalCart = document.querySelector('.total')
 
-let incQty = document.querySelectorAll('.incQ')
-let decQty = document.querySelectorAll('.deccQ')
 
-for (let i = 0 ; i < add.length ; i++) {
+for (let i = 0 ; i < add.length ; i++){
 
-  add[i].addEventListener('click', addTOCart)
+    add[i].addEventListener('click', addTOCart)
 
 }
 
@@ -26,23 +17,24 @@ function addTOCart(event) {
  let shop = btn.parentElement.parentElement
  let name = shop.querySelector('.title').innerText
  let price = shop.querySelector('.price').innerText
- let imgSrc = shop.querySelector('.img-card').src 
+ let imgSrc = shop.querySelector('.img-card').src
+ 
+ console.log (name , price , imgSrc)
 
- totalProduit.push(parseFloat(price)*quantity)
-console.log(total)
-addToModal (name , price , imgSrc  )
+ addToModal (name , price , imgSrc)
 
- AfficherTotal ()
+ total.push( parseFloat(price))
+ console.log(calculTotal())
+ addQuantity()
+
 }
 
 
 
  function addToModal (name , price , imgSrc){
-quantity++
-console.log(soustotal)
-   // On ajouter condition pour ne dupliquer pas le produit
-  if((isItExist.length==0)||(!isItExist.includes(name))){
-    item.innerHTML+=`
+
+
+     item.innerHTML += `
      <div class="row mt-3 ">
      <div class="col-md-3">
        <img src="${imgSrc}" class="img" >
@@ -53,48 +45,27 @@ console.log(soustotal)
      <div class="col-md-3">
        <strong>${price}</strong>
      </div>
-     <div class="col-md-2 d-flex" >
-     <button class="decQ" onclick="decrement()">-</button>
-     <span class="qq">${quantity}</span>
-     <button class="incQ" onclick="increment()">+</button>
+     <div class="col-md-2">
+       <span>1</span>
      </div>
      <div class="col-md-2">
      <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
      </div>
-   </div>
-   <h3>${totalProduit[totalProduit.length-1]}</h3>
-     `
-     isItExist.push(name)
-    } else  {
-"Erreur lors le remplissage du panier "
-    }
-
+   </div>`
+     
+     
 }
 
-
-
-// Affichage le total de panier dans le modal
-function AfficherTotal (){
-  totalCart.innerHTML = `<h4> : hahahaha ${calculTotal()}</h4>`
+function addQuantity () {
+  totalCart.innerHTML = `
+  <div class="pos">
+  <h4>Total Price </h4> 
+  <h4>${calculTotal()} Dt</h4>
+  </div>
+  `
 }
 
-
-// Increment quantity
-function increment(price){
- quantity++
-  document.getElementsByClassName("qq")[0].innerHTML = `${quantity}`;
-
-}
-// Decrement quantity
-function decrement(price){
-  quantity>1&&quantity--
-document.getElementsByClassName("qq")[0].innerHTML = `${quantity}`;
-
-}
-
-
-// Type de retour : Number
 function calculTotal(){
-  return total.reduce((a,b) => (a+b) )
-}
 
+    return total.reduce((a,b) => (a+b) )
+}
